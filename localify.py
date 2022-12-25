@@ -9,7 +9,6 @@ app = Flask(__name__)
 @app.route('/', methods=['GET', 'POST'])
 def index():
   if request.method == 'POST':
-    finished = False
     url = request.form['youtube-link']
     artist = request.form['artist-name']
     song = request.form['song-name']
@@ -18,7 +17,7 @@ def index():
 
     yt = YouTube(url)
 
-    vidName = yt.title.replace('.', '').replace('"', '')
+    vidName = yt.title.replace('.', '').replace('"', '').replace('$', '').replace('/', '')
     yt.streams.get_highest_resolution().download()
 
     clip = mp.VideoFileClip(vidName + '.mp4')
