@@ -1,6 +1,6 @@
 from flask import Flask, request, render_template, send_file
-from pytube import YouTube
 import moviepy.editor as mp
+from pytube import YouTube
 import eyed3
 import os
 
@@ -9,6 +9,7 @@ app = Flask(__name__)
 @app.route('/', methods=['GET', 'POST'])
 def index():
   if request.method == 'POST':
+    finished = False
     url = request.form['youtube-link']
     artist = request.form['artist-name']
     song = request.form['song-name']
@@ -33,11 +34,15 @@ def index():
     audio_file.tag.images.set(3, cover_data, "image/jpeg")
     audio_file.tag.save()
     os.remove(clip.filename)
-    
-    return send_file(
-        song + '.mp3',
-        as_attachment=True,
-        mimetype='audio/mpeg')
+
+    try:
+        return send_file(
+            song + '.mp3',
+            as_attachment=True,
+            mimetype='audio/mpeg')
+    finally:
+        os.remove(filename)
+
   return render_template('index.html')
 
 if __name__ == "__main__":
