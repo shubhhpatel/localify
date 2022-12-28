@@ -17,7 +17,7 @@ def index():
 
     yt = YouTube(url)
 
-    vidName = yt.title.replace('.', '').replace('"', '').replace('$', '').replace('/', '')
+    vidName = yt.title.replace('.', '').replace('"', '').replace('$', '').replace('/', '').replace("'", "")
     yt.streams.get_highest_resolution().download()
 
     clip = mp.VideoFileClip(vidName + '.mp4')
