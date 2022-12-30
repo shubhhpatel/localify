@@ -1,1 +1,1 @@
-# www.localify.online
+# localify.online
