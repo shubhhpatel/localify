@@ -15,6 +15,7 @@ def index():
     cover = request.files['files']
     cover_data = cover.read()
 
+
     yt = YouTube(url)
 
     vidName = yt.title.replace('.', '').replace('"', '').replace('$', '').replace('/', '').replace("'", "")
