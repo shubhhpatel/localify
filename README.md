@@ -5,3 +5,7 @@ A YouTube to Spotify Local Files converter. Allows users to customize the song t
 The website returns an mp3 file to the user with the updated metadata that is automatically uploaded to Spotify's local files directory for listening without accessing YouTube. 
 
 Made using Flask. Hosted using PythonAnywhere. SSL certificate from ZeroSSL.
+
+
+https://user-images.githubusercontent.com/85594126/225748689-a47550b6-abf7-47e8-bb92-1969b066dc81.mp4
+
