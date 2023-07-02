@@ -6,7 +6,6 @@ coverage==5.5
 decorator==4.4.2
 deprecation==2.1.0
 distlib==0.3.6
-Django==4.1.4
 eyed3==0.9.7
 filelock==3.8.2
 filetype==1.2.0
