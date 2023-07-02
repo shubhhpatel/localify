@@ -10,7 +10,6 @@ crayons==0.4.0
 decorator==4.4.2
 deprecation==2.1.0
 distlib==0.3.6
-Django==4.1.4
 eyed3==0.9.7
 ffmpeg==1.4
 ffmpeg-python==0.2.0
