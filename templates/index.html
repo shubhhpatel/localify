@@ -1,36 +1,49 @@
 <html>
+
 <head>
-  <title>Localify</title>
-  <link rel="icon" href="/static/img/spotify.png">
-  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
-  <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+	<title>Localify</title>
+	<link rel="icon" href="/static/img/spotify.png">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+	<link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
 </head>
+
 <body>
 	<form action="{{ url_for('index') }}" method="POST" enctype="multipart/form-data">
-	  <div class="container">
-		<div class="contact-box">
-		  <div class="left"></div>
-		  <div class="right">
-			<h2>Localify - YouTube to Spotify</h2>
-			<label for-"youtube-link"></label>
-			<input type="text" class="field" placeholder="YouTube Link" name="youtube-link">
-			<label for-"song-name"></label>
-			<input type="text" class="field" placeholder="Song Name" name="song-name">
-			<label for-"artist-name"></label>
-			<input type="text" class="field" placeholder="Artist Name" name="artist-name">
-			<label for="files">Upload Cover Art: </label>
-			<input type="file" id="files" value="Upload Cover Art" accept="image/*" class="upload-file" name="files">
-			<button class="btn">Turn Into Local File</button>
-		  </div>
+		<div class="container">
+			<div class="contact-box">
+				<div class="left"></div>
+				<div class="right">
+					<h2>Localify - YouTube to Spotify</h2>
+					<label for-"youtube-link"></label>
+					<input type="text" class="field" placeholder="YouTube Link" name="youtube-link">
+					<label for-"song-name"></label>
+					<input type="text" class="field" placeholder="Song Name" name="song-name">
+					<label for-"artist-name"></label>
+					<input type="text" class="field" placeholder="Artist Name" name="artist-name">
+					<label for="files">Upload Cover Art: </label>
+					<input type="file" id="files" value="Upload Cover Art" accept="image/*" class="upload-file"
+						name="files">
+					<button class="btn">Turn Into Local File</button>
+				</div>
+			</div>
+			<div class="social-media">
+				<a href="https://docs.google.com/forms/d/e/1FAIpQLSe_zkUZ6upRahALoyyilaS3pgefgMqOVCoWxjnlBsAanN3V7g/viewform?usp=sf_link"
+					target="_blank"><img src="/static/img/hand-thumbs-up.svg" alt="Give me feedback!"></a>
+				<a href="https://github.com/shubhhpatel" target="_blank"><img src="/static/img/github.svg"
+						alt="My GitHub"></a>
+				<a href="https://www.linkedin.com/in/-shubhpatel/" target="_blank"><img src="/static/img/linkedin.svg"
+						alt="Connect with me on LinkedIn"></a>
+				<a href="https://open.spotify.com/user/gg97jfxgoccn5jps156zj6pfi?si=ecd52d126fd6431d"
+					target="_blank"><img src="/static/img/spotify.svg" alt="Follow me on Spotify"></a>
+				<a href="https://www.localify.online" target="_blank"><img src="/static/img/coffee.svg"
+						alt="Buy me a coffee"></a>
+			</div>
+			<footer class="footer">
+				<p>Developed by Shubh Patel</p>
+			</footer>
 		</div>
-		<div class="social-media">
-			<a href="" target="_blank"><img src="/static/img/coffee.svg" alt="Coffee"></a>
-			<a href="https://github.com/shubhhpatel" target="_blank"><img src="/static/img/github.svg" alt="GitHub"></a>
-			<a href="https://www.linkedin.com/in/-shubhpatel/" target="_blank"><img src="/static/img/linkedin.svg" alt="LinkedIn"></a>
-			<a href="https://www.youtube.com/@notshubh" target="_blank"><img src="/static/img/youtube.svg" alt="YouTube"></a>
-		  </div>
-	  </div>
 	</form>
 </body>
+
 </html>
