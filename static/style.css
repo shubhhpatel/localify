@@ -74,6 +74,13 @@ body {
 	transform: scale(1.4);
 }
 
+.loading-bar {
+	width: 0%;
+	height: 4px;
+	background-color: #4CAF50;
+	transition: width 0.3s;
+}
+
 .social-media a {
 	margin: 0 20px;
 }
@@ -82,6 +89,7 @@ h2 {
 	position: relative;
 	padding: 5px 0 20px;
 	margin-bottom: 20px;
+	font-weight: bold;
 }
 
 h2:after {
@@ -151,6 +159,7 @@ textarea {
 	}
 }
 
+/* Existing code */
 .footer {
 	position: fixed;
 	bottom: 8;
