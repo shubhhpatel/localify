@@ -8,4 +8,4 @@ Made using Flask. Hosted using PythonAnywhere. SSL certificate from ZeroSSL.
 
 Demo:
 
-https://youtu.be/DuKobN0D4ME
+[![DEMO](https://img.youtube.com/vi/DuKobN0D4ME/0.jpg)]([https://youtu.be/DuKobN0D4MEhttps://youtu.be/DuKobN0D4ME])
