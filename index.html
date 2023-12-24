@@ -1,0 +1,117 @@
+<html>
+
+<head>
+	<title>Localify</title>
+	<link rel="icon" href="/static/img/spotify.png">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+	<link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+		$(document).ready(function () {
+			$('select[name="conversion-type"]').change(function () {
+
+				if ($(this).val() === 'SoundCloud Song') {
+					$('#cover-art-field').html('<input type="checkbox" class="checkbox" id="use-cover-art" name="use-cover-art"><label for="use-cover-art">Use SoundCloud Cover Art</label>');
+					$('#artist-field').show();
+				} else {
+					$('#cover-art-field').html('');
+					$('#artist-field').hide();
+				}
+
+				updateCoverArtVisibility();
+			});
+
+			$(document).on('change', '#use-cover-art', function () {
+				updateCoverArtVisibility();
+			});
+
+			updateCoverArtVisibility();
+		});
+
+		function updateCoverArtVisibility() {
+			var conversionType = $('select[name="conversion-type"]').val();
+			var useCoverArtChecked = $('#use-cover-art').is(':checked');
+
+			if (conversionType === 'SoundCloud Song' && useCoverArtChecked) {
+				$('#cover-art-upload').hide();
+				$('#use-cover-art').val('true');
+			} else {
+				$('#cover-art-upload').show();
+				$('#use-cover-art').val('false');
+			}
+		}
+	</script>
+</head>
+
+<body>
+	<form action="{{ url_for('index') }}" method="POST" enctype="multipart/form-data">
+		<div class="container">
+			<div class="contact-box">
+				<div class="left"></div>
+				<div class="right">
+					<h2>Localify</h2>
+					<p id="note"></p>
+					<br>
+					<label for="conversion-type"></label>
+					<select class="field" name="conversion-type" onchange="showNote()">
+						<option value="YouTube Song">YouTube Song URL</option>
+						<option value="YouTube Playlist">YouTube Playlist URL</option>
+						<option value="SoundCloud Song">SoundCloud Song URL</option>
+						<option value="SoundCloud Playlist">SoundCloud Playlist URL</option>
+						<option value="TikTok Sound">TikTok Sound URL</option>
+						<option value="Instagram Reel Audio">Instagram Reel Audio URL</option>
+					</select>
+					<label for="link"></label>
+					<div id="link-field">
+						<input type="text" class="field" placeholder="Link" name="link" pattern=".*">
+					</div>
+					<label for="song-name"></label>
+					<input type="text" class="field" placeholder="Song/Playlist Name" name="song-name">
+					<label for="artist-name"></label>
+					<input type="text" class="field" placeholder="Artist Name" name="artist-name">
+					<div id="cover-art-field"></div>
+					<br>
+					<div id="cover-art-upload">
+						<label for="cover-art">Upload Cover Art:</label>
+						<input type="file" id="cover-art" accept="image/*" class="upload-file" name="cover-art">
+					</div>
+					<input type="hidden" id="use-cover-art" name="use-cover-art" value="false">
+					<button class="btn">Turn Into Local File</button>
+				</div>
+			</div>
+			<div class="social-media">
+				<a href="https://docs.google.com/forms/d/e/1FAIpQLSe_zkUZ6upRahALoyyilaS3pgefgMqOVCoWxjnlBsAanN3V7g/viewform?usp=sf_link"
+					target="_blank"><img src="/static/img/hand-thumbs-up.svg" alt="Give me feedback!"></a>
+				<a href="https://www.youtube.com/watch?v=DuKobN0D4ME&t=231s" target="_blank"><img
+						src="/static/img/youtube.svg" alt="Tutorial"></a>
+				<a href="https://github.com/shubhhpatel" target="_blank"><img src="/static/img/github.svg"
+						alt="My GitHub"></a>
+				<a href="https://www.linkedin.com/in/-shubhpatel/" target="_blank"><img src="/static/img/linkedin.svg"
+						alt="Connect with me on LinkedIn"></a>
+				<a href="https://open.spotify.com/user/gg97jfxgoccn5jps156zj6pfi?si=ecd52d126fd6431d"
+					target="_blank"><img src="/static/img/spotify.svg" alt="Follow me on Spotify"></a>
+				<a href="https://www.buymeacoffee.com/localify" target="_blank"><img src="/static/img/coffee.svg"
+						alt="Buy me a coffee"></a>
+			</div>
+			<footer class="footer">
+				<p>Developed by Shubh Patel</p>
+			</footer>
+		</div>
+	</form>
+</body>
+
+<script>
+	function showNote() {
+		var conversionType = document.querySelector('select[name="conversion-type"]').value;
+		var note = document.getElementById('note');
+
+		if (conversionType === 'YouTube Playlist' || conversionType === 'SoundCloud Playlist') {
+			note.textContent = 'Note: Playlists can take several minutes to be downloaded.\n\n';
+		} else {
+			note.textContent = '';
+		}
+	}
+</script>
+
+</html>
