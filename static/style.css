@@ -29,7 +29,7 @@ body {
 	height: 100%;
 	left: 0;
 	top: 0;
-	background: url("img/rocky1.jpg") no-repeat center;
+	background: url("img/carti2.jpg") no-repeat center;
 	background-size: cover;
 	z-index: -1;
 	filter: blur(30px);
@@ -48,7 +48,7 @@ body {
 }
 
 .left {
-	background: url("img/rocky1.jpg") no-repeat center;
+	background: url("img/carti2.jpg") no-repeat center;
 	background-size: cover;
 	height: 100%;
 }
